@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        <title>timer nusk</title>
+    </head>
+    <body>
+        <div class="img">
+    <img src="hajj.png" alt="logo ministry of hajj and ummrah">
+     <img src="nusuk.png" alt="logo nusuk" >
+     </div>
+     <h1 id="verse">{َوَأَذِّنْ فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا وَعَلَى كُلِّ ضَامِرٍ يَأْتِينَ مِنْ كُلِّ فَجٍّ عَمِيقٍ}</h1>
+<div class="timer">
+    
+    <div class="timer-items">
+        <div class="timer-num days " id="days">
+        10
+    </div>
+    <div class="timer-info">
+             الايام
+    </div>
+</div>
+<div class="timer-items">
+    <div class="timer-num hours" id="hours">
+    11
+</div>
+<div class="timer-info">
+    ساعات
+</div>
+</div>
+<div class="timer-items">
+    <div class="timer-num minutes" id="minutes">
+    10
+</div>
+<div class="timer-info">
+    دقائق
+</div>
+</div>
+<div class="timer-items">
+    <div class="timer-num Seconds" id="Seconds">
+    10
+</div>
+<div class="timer-info">
+        ثواني
+</div>
+</div>
+</div>
+
+    </body>
+    <style>
+        
+        body{
+           background-image:url(background-nusuk.jpg) ;
+           font-family: Arial, Helvetica, sans-serif;
+            
+        }
+        .img{
+            display: flex;
+            justify-content: space-between;
+        }
+        #verse{
+            color: #215619;
+            font-size: 50px;
+            position: absolute;
+            margin: 200px 0 0 170px;
+
+        }
+      
+        .timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 300px auto;
+            }
+            .timer-items {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0 20px;
+                }
+                .timer-num {
+                    font-size: 40px;
+                    font-weight: bold;
+                    }
+                    .timer-info {
+                        font-size: 40px;
+                        color: #ffffff;
+
+                        }
+                        .days{
+                            color: rgb(255, 255, 255);
+                            background: #B49164;
+                            padding: 30px 30px;
+                            border-radius: 10px;
+                            @include longshadow($shadow,$background:#B49164 ,50);
+                            
+
+                        }
+                        .hours{
+                            color: rgb(255, 255, 255);
+                            background: #64696E;
+                            padding: 30px 30px;
+                            border-radius: 10px;
+                            @include longshadow($shadow,$background:#B49164 ,50);
+                            
+
+                        }
+                        .minutes{
+                            color: rgb(255, 255, 255);
+                            background: #3CB496;
+                            padding: 30px 30px;
+                            border-radius: 10px;
+                            @include longshadow($shadow,$background:#B49164 ,50);
+                            
+
+                        }
+                        .Seconds{
+                            color: #23282D;
+                            background: #ffffff;
+                            padding: 30px 30px;
+                            border-radius: 10px;
+                            @include longshadow($shadow,$background:#B49164 ,50);
+                            
+
+                        }
+
+    </style>
+    <script>
+        const countDownDate = new Date("July 6, 2024 00:00:00").getTime();
+
+        const interval = setInterval(() => {
+            const now = new Date().getTime();
+const duration = countDownDate - now;
+if (duration < 0) {
+    clearInterval(interval);
+    updateDuration(0);
+    return;
+}
+updateDuration(duration)},1000);
+function updateDuration(duration) {
+    const days = Math.floor(duration / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+    const Seconds = Math.floor((duration % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("Seconds").innerHTML = Seconds;
+}
+
+    </script>
+</html>
